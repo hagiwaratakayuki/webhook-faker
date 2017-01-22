@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "id": "user",
+  "required": ["groupid","type"],
+  "properties": {
+    "groupid":{
+      "type":"string"
+    },
+    "type":{
+      "type":"string",
+      "pattern": "group"
+    }
+
+  }
+}

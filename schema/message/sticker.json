@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "id": "text",
+  "required": ["id","type","packageId", "stickerId"],
+  "properties": {
+    "id":{
+      "type":"string"
+    },
+    "type":{
+      "type":"string",
+      "pattern": "sticker"
+    },
+    "packageId":{
+      "type":"string",
+    },
+    "stickerId":{
+      "type":"string",
+    }
+
+  }
+}

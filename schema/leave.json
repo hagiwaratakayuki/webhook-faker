@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required":["type","replyToken","timestamp","source"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "join"
+    },
+    "replyToken":{
+      "type": "string"
+    },
+    "timestamp":{
+      "type": "integer",
+      "minimum": 1000
+    },
+    "source":{
+      "valid": ["group"]
+    },
+
+  }
+}

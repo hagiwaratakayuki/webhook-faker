@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required":["type","replyToken","timestamp","source","postback"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "messsage"
+    },
+    "replyToken":{
+      "type": "string"
+    },
+    "timestamp":{
+      "type": "integer",
+      "minimum": 1000
+    },
+    "source":{
+      "$ref":"user"
+    },
+    "beacon":{
+      "type": "object",
+      "required":["hwid"],
+      "properties": {
+        "hwid":{
+          "type":"string"
+        }
+      }
+    }
+  }
+}

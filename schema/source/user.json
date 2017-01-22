@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "id": "user",
+  "required": ["userid","type"],
+  "properties": {
+    "userid":{
+      "type":"string"
+    },
+    "type":{
+      "type":"string",
+      "pattern": "user"
+    }
+
+  }
+}

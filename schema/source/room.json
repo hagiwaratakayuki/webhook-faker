@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "id": "user",
+  "required": ["roomid","type"],
+  "properties": {
+    "roomid":{
+      "type":"string"
+    },
+    "type":{
+      "type":"string",
+      "pattern": "room"
+    }
+
+  }
+}

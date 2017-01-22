@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required":["type","replyToken","timestamp","source"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "follow"
+    },
+    "replyToken":{
+      "type": "string"
+    },
+    "timestamp":{
+      "type": "integer",
+      "minimum": 1000
+    },
+    "source":{
+      "$ref":"user",
+      "valid": ["user"]
+    },
+
+  }
+}

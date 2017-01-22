@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required":["type","replyToken","timestamp","source","postback"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "pattern": "messsage"
+    },
+    "replyToken":{
+      "type": "string"
+    },
+    "timestamp":{
+      "type": "integer",
+      "minimum": 1000
+    },
+    "source":{},
+    "postback":{
+      "type": "object",
+      "required":["data"],
+      "properties": {
+        "data":{
+          "type":"string",
+        }
+      }
+    }
+  }
+}
