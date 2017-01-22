@@ -9,9 +9,11 @@ Now fixed for Line Messaging API.
 
 ## Installation
 
-    1. git clone https://github.com/b4b4r07/awesome-tool
+    1. git clone https://github.com/hagiwaratakayuki/webhook-faker
     2. cd installed directry.
     3. "npm install"
+    4. create "cript" directory.
+    5. create channel_secret.txt and  write Line bot channel secret.
 
 ## Usage
 
