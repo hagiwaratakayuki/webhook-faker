@@ -70,7 +70,12 @@ var commands = {
 
 
        if(!settings.output){
-         settings.output = (settings.outputDir + '/' + event + '.json').replace('//','/');
+         var groupname = settings.name || event;
+         if(event === 'message'){
+           groupname = groupname + '.' + messageType
+         }
+         groupname = groupname + '.' + sourceType;
+         settings.output = (settings.outputDir + '/' + groupname + '.json').replace('//','/');
        }
        return settings;
       }
