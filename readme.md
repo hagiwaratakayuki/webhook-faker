@@ -64,8 +64,8 @@ event type is optional. default is 'enter'
 
 ## Author
 
-[hagiwara takayuki](hagiwaratakayuki+webhookfaker@gmail.com)
+hagiwara takayuki hagiwaratakayuki+webhookfaker@gmail.com
 
 ## License
 
-[MIT](http://b4b4r07.mit-license.org)
+MIT
