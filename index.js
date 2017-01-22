@@ -72,13 +72,27 @@ var commands = {
        if(!settings.output){
          var groupname = settings.name || event;
          if(event === 'message'){
-           groupname = groupname + '.' + messageType
+           groupname = groupname + '.' + messageType;
+         }
+         if(event === 'beacon'){
+           groupname = groupname + '.' + beaconEvent;
          }
          groupname = groupname + '.' + sourceType;
          settings.output = (settings.outputDir + '/' + groupname + '.json').replace('//','/');
+         this.groupName = groupname;
        }
        return settings;
-      }
+     },
+     afterSave: function(requestBody, settings){
+        var channelSecretFile  = settings.channelScretFile ||  (settings.criptDir + '/channel_secret.txt').replace('//','/');
+        var secret = fs.readFileSync(channelSecretFile,'utf8');
+        var signature = createHmac(requestBody, secret);
+        var signatureFile =  settings.signatureFile || (settings.outputDir + '/' + this.groupName + '.json').replace('//','/');
+        if(!settings.signatureFile &&  !settings.groupName){
+          signatureFile = settings.output + '.signature';
+        }
+        fs.writeFileSync(signatureFile, signature);
+     },
    },
 };
 
@@ -89,6 +103,7 @@ var settings = {
   schemaDir:'schema/',
   messageSchemaDir: 'message/',
   sourceSchemaDir: 'source/',
+  criptDir: 'cript/',
 };
 if(process.argv.length < 3){
   throw 'please enter command';
@@ -154,7 +169,9 @@ fs.writeFileSync(output, fakeData);
 
 
 console.log('created file:' + output);
-
+if(command.afterSave){
+  command.afterSave(fakeData,settings)
+}
 
 function _executeCommand(command, commandName,options, settings, name, required){
 
